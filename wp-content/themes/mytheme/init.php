@@ -19,7 +19,7 @@ add_action('wp_enqueue_scripts', 'my_theme_enqueue');
 
 function my_theme_init(){
     $menus = array(
-        'huvudmeny' => 'huvudmeny',
+        'main_menu' => 'main_menu',
         'footermeny' => 'footermeny',
         'footer_socialmedia' => 'footersocialmedia'
     );
