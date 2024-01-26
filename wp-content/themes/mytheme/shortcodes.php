@@ -1,16 +1,21 @@
 <?php
-function mytheme_shortcode_draw_box($attr){
-    $attr = shortcode_atts(
-        array(
-            "color" => "green",
-            "size" => 1,
-        ), 
-        $attr,
-        "mytheme_box"
-    );
 
-    return '<div style="width:100px; height:100px; background:' . $attr["color"] . '"></div>';
+function mytheme_shortcode_sample_project(){
+    $attr = "sampleproject";
+
+    return '<div class="sampleproject-div">
+    <div class="opacity-div"></div>
+    <div class="content-container">
+    <h1>Sample 
+    Project</h1>
+    <a href="#">
+    <p>VIEW MORE <img src="' . get_template_directory_uri() . '/assets/images/arrow-right.svg" alt="arrow-right" /></p>
+    </a>
+    </div>
+    </div>';
+
 }
 
-add_shortcode("mytheme_box", "mytheme_shortcode_draw_box");
+add_shortcode("sampleproject", "mytheme_shortcode_sample_project");
+
 ?>

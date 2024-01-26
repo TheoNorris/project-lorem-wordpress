@@ -1,6 +1,6 @@
 <footer>
     <div class="footer-left">
-        <a href="/"><img src="<?= get_template_directory_uri() . "/assets/images/grit_logo.jpg"; ?> " class="logo"></a>
+        <a href="/"><img src="<?= get_template_directory_uri() . "/assets/images/loremlogo.svg"; ?> " class="logo"></a>
     </div>
 
     <div class="footer-center">

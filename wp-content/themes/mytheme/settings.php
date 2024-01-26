@@ -36,7 +36,38 @@ function mytheme_add_settings_callback(){
 add_action('admin_menu', 'mytheme_add_settings');
 
 //registrerar inställningar tillgängliga på sidan "Butik"
-function mytheme_add_settings_init(){
+function mytheme_add_settings_init() {
+    $settings_fields = array(
+        'store_message' => array(
+            'label'       => 'Store Message',
+            'option_type' => 'text',
+        ),
+        'store_open' => array(
+            'label'       => 'Store Open',
+            'option_type' => 'time',
+        ),
+        'store_close' => array(
+            'label'       => 'Store Close',
+            'option_type' => 'time',
+        ),
+        'store_name' => array(
+            'label'       => 'Store Name',
+            'option_type' => 'text',
+        ),
+        'store_adress' => array(
+            'label'       => 'Store Address',
+            'option_type' => 'text',
+        ),
+        'store_postnumber' => array(
+            'label'       => 'Store Postnumber',
+            'option_type' => 'number',
+        ),
+        'store_city' => array(
+            'label'       => 'Which City?',
+            'option_type' => 'text',
+        ),
+    );
+
     add_settings_section(
         'butik_general',
         'General',
@@ -44,129 +75,21 @@ function mytheme_add_settings_init(){
         'butik'
     );
 
-    //register store message
-    register_setting(
-        'butik',
-        'store_message'
-    );
+    foreach ($settings_fields as $option_name => $field_args) {
+        register_setting('butik', $option_name);
 
-    add_settings_field(
-        'store_message',
-        'Store Message',
-        'mytheme_section_general_setting',
-        'butik',
-        'butik_general',
-        array(
-            "option_name" => "store_message",
-            "option_type" => "text"
-        )
-    );
-
-    //registrera öppettider
-    //registrera när det öppnar
-    register_setting(
-        'butik',
-        'store_open'
-    );
-
-    add_settings_field(
-        'store_open',
-        'Store Open',
-        'mytheme_section_general_setting',
-        'butik',
-        'butik_general',
-        array(
-            "option_name" => "store_open",
-            "option_type" => "time"
-        )
-    );
-
-    //registrera när det stänger
-    register_setting(
-        'butik',
-        'store_close'
-    );
-    add_settings_field(
-        'store_close',
-        'Store Close',
-        'mytheme_section_general_setting',
-        'butik',
-        'butik_general',
-        array(
-            "option_name" => "store_close",
-            "option_type" => "time"
-        )
-    );
-
-
-    //registrera företagsnamn
-    register_setting(
-        'butik',
-        'store_name'
-    );
-    add_settings_field(
-        'store_name',
-        'Store name',
-        'mytheme_section_general_setting',
-        'butik',
-        'butik_general',
-        array(
-            "option_name" => "store_name",
-            "option_type" => "text"
-        )
-    );
-
-    //registrera företagsadress
-    register_setting(
-        'butik',
-        'store_adress'
-    );
-    add_settings_field(
-        'store_adress',
-        'Store adress',
-        'mytheme_section_general_setting',
-        'butik',
-        'butik_general',
-        array(
-            "option_name" => "store_adress",
-            "option_type" => "text"
-        )
-    );
-
-
-    //registrera företags postnummer
-    register_setting(
-        'butik',
-        'store_postnumber'
-    );
-    add_settings_field(
-        'store_postnumber',
-        'Store postnumber',
-        'mytheme_section_general_setting',
-        'butik',
-        'butik_general',
-        array(
-            "option_name" => "store_postnumber",
-            "option_type" => "text"
-        )
-    );
-
-    //registrera företags stad
-    register_setting(
-        'butik',
-        'store_city'
-    );
-    add_settings_field(
-        'store_city',
-        'Which city?',
-        'mytheme_section_general_setting',
-        'butik',
-        'butik_general',
-        array(
-            "option_name" => "store_city",
-            "option_type" => "text"
-        )
-    );
+        add_settings_field(
+            $option_name,
+            $field_args['label'],
+            'mytheme_section_general_setting',
+            'butik',
+            'butik_general',
+            array(
+                "option_name" => $option_name,
+                "option_type" => $field_args['option_type'],
+            )
+        );
+    }
 }
 
 add_action('admin_init', 'mytheme_add_settings_init');
