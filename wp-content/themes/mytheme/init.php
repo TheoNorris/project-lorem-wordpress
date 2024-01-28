@@ -9,3 +9,15 @@ function my_theme_enqueue() {
     wp_enqueue_script("app", $theme_directory . "/app.js");
 }
 add_action('wp_enqueue_scripts', 'my_theme_enqueue');
+
+function my_theme_init(){
+    $menus = array(
+        'main_menu' => 'main_menu',
+        'information_menu' => 'information_menu',
+        'contacts_menu' => 'contacts_menu',
+        'socialmedia_menu' => 'socialmedia_menu'
+    );
+
+    register_nav_menus($menus);
+}
+add_action('after_setup_theme', 'my_theme_init');

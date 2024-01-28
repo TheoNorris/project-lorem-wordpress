@@ -8,10 +8,10 @@ if(!is_admin()) {
 function mytheme_add_settings() {
     add_submenu_page(
         "options-general.php",
-        "Butik",
-        "Butik",
+        "Contacts",
+        "Contacts",
         "edit_pages",
-        "butik",
+        "contacts",
         "mytheme_add_settings_callback"
     );
 }
@@ -20,11 +20,11 @@ function mytheme_add_settings_callback(){
     ?>
 
     <div class="wrap">
-        <h2>Butikinställningar</h2>
+        <h2>Contact Settings</h2>
         <form action="options.php" method="post">
             <?php
-            settings_fields('butik');
-            do_settings_sections('butik');
+            settings_fields('contacts');
+            do_settings_sections('contacts');
             submit_button();
             ?>
         </form>
@@ -38,52 +38,61 @@ add_action('admin_menu', 'mytheme_add_settings');
 //registrerar inställningar tillgängliga på sidan "Butik"
 function mytheme_add_settings_init() {
     $settings_fields = array(
-        'store_message' => array(
-            'label'       => 'Store Message',
+        'address' => array(
+            'label'       => 'Address',
             'option_type' => 'text',
         ),
-        'store_open' => array(
-            'label'       => 'Store Open',
-            'option_type' => 'time',
-        ),
-        'store_close' => array(
-            'label'       => 'Store Close',
-            'option_type' => 'time',
-        ),
-        'store_name' => array(
-            'label'       => 'Store Name',
-            'option_type' => 'text',
-        ),
-        'store_adress' => array(
-            'label'       => 'Store Address',
-            'option_type' => 'text',
-        ),
-        'store_postnumber' => array(
-            'label'       => 'Store Postnumber',
+        'postcode' => array(
+            'label'       => 'Postcode',
             'option_type' => 'number',
         ),
-        'store_city' => array(
-            'label'       => 'Which City?',
+        'city' => array(
+            'label'       => 'City',
             'option_type' => 'text',
         ),
+        'number' => array(
+            'label'       => 'Phone Number',
+            'option_type' => 'number',
+        ),
+        'email' => array(
+            'label'       => 'Email',
+            'option_type' => 'email',
+        ),
+        'facebook' => array(
+            'label'       => 'Facebook Link',
+            'option_type' => 'text',
+        ),
+        'twitter' => array(
+            'label'       => 'Twitter Link',
+            'option_type' => 'text',
+        ),
+        'linkedin' => array(
+            'label'       => 'LinkedIn Link',
+            'option_type' => 'text',
+        ),
+        'pinterest' => array(
+            'label'       => 'Pinterest Link',
+            'option_type' => 'text',
+        ),
+
     );
 
     add_settings_section(
-        'butik_general',
+        'contacts_general',
         'General',
         'mytheme_add_settings_section_general',
-        'butik'
+        'contacts'
     );
 
     foreach ($settings_fields as $option_name => $field_args) {
-        register_setting('butik', $option_name);
+        register_setting('contacts', $option_name);
 
         add_settings_field(
             $option_name,
             $field_args['label'],
             'mytheme_section_general_setting',
-            'butik',
-            'butik_general',
+            'contacts',
+            'contacts_general',
             array(
                 "option_name" => $option_name,
                 "option_type" => $field_args['option_type'],
@@ -97,7 +106,7 @@ add_action('admin_init', 'mytheme_add_settings_init');
 
 //ritar ut inställningar på sidan "Butik"
 function mytheme_add_settings_section_general(){
-    echo"<p>Generella inställningar för butiken</p>";
+    echo"<p>General Settings for Contacts</p>";
 }
 
 //ritar ut inställningsfältet för store_message
