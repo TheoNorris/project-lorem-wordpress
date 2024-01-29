@@ -18,6 +18,26 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  transform: scale(1.1);
+}
+
+.home-buttons:hover {
+  transform: scale(1.1);
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+#primary-menu li:hover {
+  transform: scale(1.1);
+}
+
+.footer-menu li:hover {
+  transform: scale(1.1);
+}
+
 .general-text {
   color: #000;
   font-family: Roboto;
@@ -461,4 +481,189 @@ footer .footer-container-holder {
   padding: 25px 0;
   text-align: center;
   border-top: 1px solid rgba(200, 200, 200, 0.5);
+}
+
+@media (max-width: 1430px) {
+  ul#primary-menu.menu {
+    justify-content: right;
+  }
+  li#menu-item-18 {
+    margin-right: 0;
+  }
+  .block-home .block-3-home-numbers {
+    font-size: 25vh;
+  }
+  .block-home .block-3-home-text {
+    font-size: 2.5vh;
+    line-height: 4vh;
+  }
+}
+
+@media (max-width: 1130px) {
+  .block-home .block-3-home-numbers {
+    font-size: 12.5vh;
+    width: fit-content;
+  }
+  .block-home .block-3-home-text {
+    font-size: 16px;
+    line-height: 25px;
+    margin-top: 10px;
+  }
+  .title-top {
+    font-size: 5vh;
+    line-height: 5vh;
+  }
+  .block-2-home {
+    padding: 20px;
+    height: 100%;
+    margin-top: 60px;
+  }
+
+  .block-2-home-column-3 {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .block-2-home-column-3 h1 {
+    width: 100%;
+    text-align: left;
+  }
+  .block-3-home-container div div div {
+    flex-basis: auto !important;
+    margin: 0 20px;
+  }
+  .block-home-5 div {
+    display: flex;
+    flex-direction: column;
+  }
+  .block-5-home-image {
+    display: none;
+  }
+  .block-5-home-content-holder {
+    margin-bottom: 60px;
+  }
+  footer .footer-container-holder {
+    padding: 10vw;
+    align-items: center;
+  }
+  .footer-container-holder div {
+    flex-basis: 48%;
+    margin: 1%;
+    box-sizing: border-box;
+  }
+  .footer-container-holder .footer-container-1,
+  .footer-container-holder .footer-container-4 {
+    order: 1;
+    margin-bottom: 60px;
+  }
+  .footer-container-holder .footer-container-2,
+  .footer-container-holder .footer-container-3 {
+    order: 2;
+  }
+}
+
+@media (max-width: 1000px) {
+  .block-1-home {
+    display: flex !important;
+    flex-direction: column;
+  }
+  .block-1-home-left {
+    display: flex;
+    align-items: center;
+    padding-top: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  ul#primary-menu.menu {
+    display: none;
+  }
+  #rmp_menu_trigger-148 {
+    margin: 30px 5% 0 0;
+  }
+  .sampleproject-div .content-container {
+    margin-left: 30px;
+  }
+  .sampleproject-div .content-container h1 {
+    font-size: 5vh;
+    line-height: 6vh;
+  }
+}
+
+@media (max-width: 782px) {
+  #rmp_menu_trigger-148 {
+    margin-top: 50px;
+  }
+  header {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .block-1-home-left .wp-block-buttons {
+    flex-direction: row;
+  }
+  .title-bottom {
+    margin-bottom: 60px;
+  }
+  .block-2-home {
+    height: fit-content;
+  }
+  .block-2-home-images img {
+    width: 100%;
+  }
+  .block-3-home-container div div {
+    gap: 0px;
+  }
+  .block-3-home-numbers {
+    margin-top: 20px;
+  }
+  /*
+  body .is-layout-flex {
+    flex-direction: column;
+    height: fit-content;
+  }
+  */
+
+  .block-4-home-container {
+    height: 165vh;
+  }
+  .block-4-home-top-div div {
+    height: inherit;
+  }
+  .block-4-home-image-3 {
+    margin-bottom: 60px;
+  }
+  .sampleproject-div {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .sampleproject-div .content-container {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+  }
+  .block-4-home-container div .wp-block-buttons {
+    width: 100%;
+    display: flex;
+    align-content: flex-end;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-basis: 98%;
+    margin: 2%;
+    box-sizing: border-box;
+  }
+  .block-5-home-content-holder .block-5-home-image-container {
+    display: none;
+  }
+}
+
+@media (max-width: 468px) {
+  .block-4-home-container {
+    height: 145vh;
+  }
 }
